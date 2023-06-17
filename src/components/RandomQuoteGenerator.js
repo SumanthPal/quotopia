@@ -1,6 +1,6 @@
 import React from 'react';
-
-const QuoteSection = () => {
+import "./quote-generator.css"
+const RandomQuoteGenerator = () => {
     const [data, setData] = React.useState(null);
 
     async function updateQuote() {
@@ -24,20 +24,20 @@ const QuoteSection = () => {
 
 
     return (
-       <section className="App">
-           <div className="quote-content">
-                <p>{data.content}</p>
-           </div>
-           {data.author && (
-               <div className="blockquote-footer">
-                   <cite title="Source Title">{data.author}</cite>
-               </div>
-           )}
-           <div className="quote-button">
-                <button className="quote-button" onClick={updateQuote}>New Quote</button>
-           </div>
-       </section>
+        <section className="quote-generator">
+            <h1 className="title">Random Quote Generator</h1>
+            <div className="quote-content">
+                <p className="quote-text">{data.content}</p>
+                <p className="quote-name">{data.author && (
+                    <div className="blockquote-footer">
+                        <cite title="Source Title">{data.author}</cite>
+                    </div>)}</p>
+            </div>
+            <div className="quote-button">
+                <button className="new-quote-button" onClick={updateQuote}>New Quote</button>
+            </div>
+        </section>
     );
 };
 
-export default QuoteSection;
+export default RandomQuoteGenerator;
