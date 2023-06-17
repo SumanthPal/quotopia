@@ -1,0 +1,55 @@
+.quoter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 40px;
+}
+
+.title {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
+
+.quote-content {
+    margin-bottom: 50px;
+    opacity: 0;
+    animation: fade-in 1s ease-in-out forwards;
+}
+
+.quote-content p {
+    font-size: 24px;
+    color: #555;
+}
+
+.blockquote-footer {
+    margin-top: 20px;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

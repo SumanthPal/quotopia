@@ -1,7 +1,9 @@
 import React from 'react';
 import {ChangeEvent} from "react";
 import "./Title-Generator.css"
-const TitleQuoteGenerator = () => {
+
+
+const TagQuoteGenerator = () => {
     const [data, setData] = React.useState(null);
     const [inputText, setInputText] = React.useState("");
     const [updated, setUpdated] = React.useState('');
@@ -27,7 +29,7 @@ const TitleQuoteGenerator = () => {
 
     async function updateQuote() {
         try {
-            const response = await fetch("https://api.quotable.io/random?author=" + updated);
+            const response = await fetch("https://api.quotable.io/random?tags=" + updated);
             console.log("https://api.quotable.io/random?" + updated)
 
 
@@ -38,7 +40,7 @@ const TitleQuoteGenerator = () => {
             // If the API request failed, log the error to console and update state
             // so that the error will be reflected in the UI.
             console.error(error);
-            setData({content: "Please Spell the Name Correctly"});
+            setData({content: "Please enter a valid genre"});
         }
     }
     React.useEffect(() => {
@@ -46,9 +48,9 @@ const TitleQuoteGenerator = () => {
     }, []);
 
     if (!data) return (
-        <section className="App">
-            <h1 className="title">Quote Generator by Author</h1>
-            <p className="subtitle">Enter the author's FULL name to get a quote</p>
+        <section className="quoter">
+            <h1 className="title">Quote Generator by Genre</h1>
+            <p className="subtitle">Enter the genre's  name to get a quote (ex. History or Technology)</p>
             <input type="text" onChange={handleChange}onKeyDown={handleKeyDown} value={inputText} />
         </section>
     );
@@ -56,8 +58,8 @@ const TitleQuoteGenerator = () => {
 
     return (
         <section className="quoter">
-            <h1 className="title">Quote Generator by Author</h1>
-            <p className="subtitle">Enter the author's FULL name to get a quote</p>
+            <h1 className="title">Quote Generator by Genre</h1>
+            <p className="subtitle">Enter the genre's  name to get a quote (ex. History or Technology)</p>
             <input type="text" onChange={handleChange}onKeyDown={handleKeyDown} value={inputText} />
             <div className="quote-content">
                 <p>{data.content}</p>
@@ -73,4 +75,4 @@ const TitleQuoteGenerator = () => {
     );
 };
 
-export default TitleQuoteGenerator;
+export default TagQuoteGenerator;
